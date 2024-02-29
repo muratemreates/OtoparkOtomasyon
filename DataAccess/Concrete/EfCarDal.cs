@@ -10,5 +10,13 @@ namespace DataAccess.Concrete
 {
     public class EfCarDal:EfEntitiyRespositoryBase<Car,PARKOTContext>,ICarDal
     {
+        PARKOTContext context = new PARKOTContext();
+        public List<Car> GetByCitizenNoSearch(string key)
+        {
+            using (context)
+            {
+                return  context.Cars.Where(p=> p.CitizenshipNumber.Contains(key)).ToList();
+            }
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace DataAccess.Abstract
 {
     public interface ICarDal:IEntitiyRespository<Car>
     {
+        List<Car> GetByCitizenNoSearch(string key);
     }
 }
