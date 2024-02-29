@@ -51,11 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICarService.cs" />
+    <Compile Include="Abstract\IMemberService.cs" />
+    <Compile Include="Concrete\CarManager.cs" />
+    <Compile Include="Concrete\MemberManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\DataAccess\PARKOT.DataAccess.csproj">
+      <Project>{B67F0400-49FF-4FFE-A297-0A3D9651CC20}</Project>
+      <Name>PARKOT.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\PARKOT.Entities.csproj">
+      <Project>{125819F2-BB89-4AF6-96FD-B15D026E310E}</Project>
+      <Name>PARKOT.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
