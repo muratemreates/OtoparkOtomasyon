@@ -8,7 +8,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete
 {
-    public class EfCarDal:EfEntitiyRespositoryBase<Car,PARKOTContext>,ICarDal
+    public class EfMemberDal:EfEntitiyRespositoryBase<Member,PARKOTContext>,IMemberdal
     {
     }
 }

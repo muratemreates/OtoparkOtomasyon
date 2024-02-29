@@ -53,8 +53,10 @@
   <ItemGroup>
     <Compile Include="Abstract\ICarDal.cs" />
     <Compile Include="Abstract\IEntitiyRespository.cs" />
+    <Compile Include="Abstract\IMemberdal.cs" />
     <Compile Include="Concrete\EfCarDal.cs" />
     <Compile Include="Concrete\EfEntitiyRespositoryBase.cs" />
+    <Compile Include="Concrete\EfMemberDal.cs" />
     <Compile Include="Concrete\PARKOTContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
