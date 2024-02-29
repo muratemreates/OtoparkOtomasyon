@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{125819F2-BB89-4AF6-96FD-B15D026E310E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PARKOT.Entities", "Entities\PARKOT.Entities.csproj", "{125819F2-BB89-4AF6-96FD-B15D026E310E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B67F0400-49FF-4FFE-A297-0A3D9651CC20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PARKOT.DataAccess", "DataAccess\PARKOT.DataAccess.csproj", "{B67F0400-49FF-4FFE-A297-0A3D9651CC20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussiness", "Bussiness\Bussiness.csproj", "{6C9ED80C-7E28-4ADF-AA03-130270374FD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PARKOT.Bussiness", "Bussiness\PARKOT.Bussiness.csproj", "{6C9ED80C-7E28-4ADF-AA03-130270374FD5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "myForms", "myForms", "{1908AAEF-596B-4ABF-A4EC-1DE85264662E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{F9A23D0D-D22A-4E4A-9D85-553EC66701A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PARKOT.WindowsFormUI", "PARKOT.WindowsFormUI\PARKOT.WindowsFormUI.csproj", "{A313C8B4-4393-4CF3-BC49-9ACC36768DC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,16 +29,13 @@ Global
 		{6C9ED80C-7E28-4ADF-AA03-130270374FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C9ED80C-7E28-4ADF-AA03-130270374FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C9ED80C-7E28-4ADF-AA03-130270374FD5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9A23D0D-D22A-4E4A-9D85-553EC66701A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9A23D0D-D22A-4E4A-9D85-553EC66701A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9A23D0D-D22A-4E4A-9D85-553EC66701A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9A23D0D-D22A-4E4A-9D85-553EC66701A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A313C8B4-4393-4CF3-BC49-9ACC36768DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A313C8B4-4393-4CF3-BC49-9ACC36768DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A313C8B4-4393-4CF3-BC49-9ACC36768DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A313C8B4-4393-4CF3-BC49-9ACC36768DC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{F9A23D0D-D22A-4E4A-9D85-553EC66701A5} = {1908AAEF-596B-4ABF-A4EC-1DE85264662E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F33D8B62-1C48-4B5F-81E6-8750DFE7E444}

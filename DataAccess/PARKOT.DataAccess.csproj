@@ -65,9 +65,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entities\Entities.csproj">
+    <ProjectReference Include="..\Entities\PARKOT.Entities.csproj">
       <Project>{125819F2-BB89-4AF6-96FD-B15D026E310E}</Project>
-      <Name>Entities</Name>
+      <Name>PARKOT.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
