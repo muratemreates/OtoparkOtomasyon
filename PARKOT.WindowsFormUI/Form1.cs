@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataAccess.Concrete;
+using System;
 using System.Windows.Forms;
 
 namespace PARKOT.WindowsFormUI
@@ -15,6 +9,12 @@ namespace PARKOT.WindowsFormUI
         public Form1()
         {
             InitializeComponent();
+        }
+
+        readonly EfCarDal efCarDal  = new EfCarDal();
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            dgw_Cars.DataSource = efCarDal.GetAll();
         }
     }
 }

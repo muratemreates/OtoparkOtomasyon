@@ -10,7 +10,7 @@ namespace DataAccess.Concrete
 {
     public class EfCarDal:EfEntitiyRespositoryBase<Car,PARKOTContext>,ICarDal
     {
-        PARKOTContext context = new PARKOTContext();
+        readonly PARKOTContext context = new PARKOTContext();
         public List<Car> GetByCitizenNoSearch(string key)
         {
             using (context)

@@ -12,7 +12,7 @@ namespace Bussiness.Concrete
             _carDal = carDal;
         }
 
-        private ICarDal _carDal;
+        private readonly ICarDal _carDal;
         public void Add(Car car)
         {
            _carDal.Add(car);

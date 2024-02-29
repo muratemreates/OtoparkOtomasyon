@@ -10,7 +10,7 @@ namespace DataAccess.Concrete
 {
     public class EfMemberDal:EfEntitiyRespositoryBase<Member,PARKOTContext>,IMemberdal
     {
-        private PARKOTContext context = new PARKOTContext();
+        private readonly PARKOTContext context = new PARKOTContext();
 
         public bool MemberSearch(string username, string password)
         {
