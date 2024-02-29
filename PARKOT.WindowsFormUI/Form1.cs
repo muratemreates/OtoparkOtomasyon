@@ -1,4 +1,5 @@
-﻿using DataAccess.Concrete;
+﻿using Bussiness.Abstract;
+using DataAccess.Concrete;
 using System;
 using System.Windows.Forms;
 
@@ -6,6 +7,7 @@ namespace PARKOT.WindowsFormUI
 {
     public partial class Form1 : Form
     {
+        private ICarService _carService;
         public Form1()
         {
             InitializeComponent();
