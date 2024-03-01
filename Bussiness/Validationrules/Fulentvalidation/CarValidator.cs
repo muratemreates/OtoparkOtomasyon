@@ -1,4 +1,4 @@
-using Entities.Concrete;
+﻿using Entities.Concrete;
 using FluentValidation;
 
 namespace Bussiness.Validationrules.Fulentvalidation
@@ -7,13 +7,13 @@ namespace Bussiness.Validationrules.Fulentvalidation
     {
         public CarValidator()
         {
-            RuleFor(p => p.Name).NotEmpty();
-            RuleFor(p => p.Surname).NotEmpty();
-            RuleFor(p => p.CitizenshipNumber).NotEmpty();
-            RuleFor(p => p.CarBrand).NotEmpty();
-            RuleFor(p => p.NumberPlate).NotEmpty();
-            RuleFor(p => p.Gsm).NotEmpty();
-            RuleFor(p => p.CarPark).NotEmpty();
+            RuleFor(p => p.Name).NotEmpty().WithMessage("İsim boş bırakılamaz");
+            RuleFor(p => p.Surname).NotEmpty().WithMessage("Soyisim boş bırakılamaz");
+            RuleFor(p => p.CitizenshipNumber).NotEmpty().WithMessage("Vatandaşlık nuamrası boş bırakılamaz");
+            RuleFor(p => p.CarBrand).NotEmpty().WithMessage("Araç markası boş bıraklılamaz");
+            RuleFor(p => p.NumberPlate).NotEmpty().WithMessage("Araç plakası boş bırakılamaz");
+            RuleFor(p => p.Gsm).NotEmpty().WithMessage("İletişim numarası boşi bırakılamaz");
+            RuleFor(p => p.CarPark).NotEmpty().WithMessage("Park yeri seçilmeli");
             
         }
     }

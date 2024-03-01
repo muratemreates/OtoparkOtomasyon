@@ -6,11 +6,11 @@ using Bussiness.DependencyResolvers.Ninject;
 
 namespace PARKOT.WindowsFormUI
 {
-    public partial class Form1 : Form
+    public partial class Parkot : Form
     {
         private readonly ICarService _carService;
         private readonly IMemberService _memberService;
-        public Form1()
+        public Parkot()
         {
             InitializeComponent();
             _carService = InstanceFactory.GetIstance<ICarService>();

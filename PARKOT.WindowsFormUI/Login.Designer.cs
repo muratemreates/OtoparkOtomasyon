@@ -1,6 +1,6 @@
 ﻿namespace PARKOT.WindowsFormUI
 {
-    partial class Form1
+    partial class Parkot
     {
         /// <summary>
         /// Required designer variable.
@@ -34,22 +34,29 @@
             // 
             // dgw_Cars
             // 
+            this.dgw_Cars.AllowUserToAddRows = false;
+            this.dgw_Cars.AllowUserToDeleteRows = false;
+            this.dgw_Cars.AllowUserToResizeColumns = false;
+            this.dgw_Cars.AllowUserToResizeRows = false;
+            this.dgw_Cars.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgw_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgw_Cars.Location = new System.Drawing.Point(12, 157);
+            this.dgw_Cars.Location = new System.Drawing.Point(12, 258);
             this.dgw_Cars.Name = "dgw_Cars";
+            this.dgw_Cars.ReadOnly = true;
             this.dgw_Cars.RowHeadersWidth = 51;
             this.dgw_Cars.RowTemplate.Height = 24;
-            this.dgw_Cars.Size = new System.Drawing.Size(776, 220);
+            this.dgw_Cars.Size = new System.Drawing.Size(992, 220);
             this.dgw_Cars.TabIndex = 0;
             // 
-            // Form1
+            // Parkot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1016, 490);
             this.Controls.Add(this.dgw_Cars);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Parkot";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "PARKOT";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Cars)).EndInit();
             this.ResumeLayout(false);
