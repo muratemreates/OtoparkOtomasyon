@@ -11,7 +11,7 @@ namespace Bussiness.Concrete
 {
     public class CarBakManager : ICarBakService
     {
-        private ICarBakDal _carBakDal;
+        private readonly ICarBakDal _carBakDal;
 
         public CarBakManager(ICarBakDal carBakDal)
         {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Bussiness.Abstract;
+﻿using Bussiness.Abstract;
 using Bussiness.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete;
@@ -20,6 +15,9 @@ namespace Bussiness.DependencyResolvers.Ninject
 
             Bind<IMemberService>().To<MemberManager>().InSingletonScope();
             Bind<IMemberdal>().To<EfMemberDal>().InSingletonScope();
+
+            Bind<ICarBakService>().To<CarBakManager>().InSingletonScope();
+            Bind<ICarBakDal>().To<EfCarBakDal>().InSingletonScope();
         }
     }
 }
