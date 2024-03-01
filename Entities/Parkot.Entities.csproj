@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Abstract\IEntitiy.cs" />
     <Compile Include="Concrete\Car.cs" />
+    <Compile Include="Concrete\CarBak.cs" />
     <Compile Include="Concrete\Member.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

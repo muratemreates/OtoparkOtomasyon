@@ -63,8 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICarBakService.cs" />
     <Compile Include="Abstract\ICarService.cs" />
     <Compile Include="Abstract\IMemberService.cs" />
+    <Compile Include="Concrete\CarBakManager.cs" />
     <Compile Include="Concrete\CarManager.cs" />
     <Compile Include="Concrete\MemberManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\BussinesModule.cs" />

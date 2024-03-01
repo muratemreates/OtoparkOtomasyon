@@ -51,9 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\ICarBakDal.cs" />
     <Compile Include="Abstract\ICarDal.cs" />
     <Compile Include="Abstract\IEntitiyRespository.cs" />
     <Compile Include="Abstract\IMemberdal.cs" />
+    <Compile Include="Concrete\EfCarBakDal.cs" />
     <Compile Include="Concrete\EfCarDal.cs" />
     <Compile Include="Concrete\EfEntitiyRespositoryBase.cs" />
     <Compile Include="Concrete\EfMemberDal.cs" />

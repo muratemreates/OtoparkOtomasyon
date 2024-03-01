@@ -12,5 +12,6 @@ namespace DataAccess.Concrete
     {
         public DbSet<Car> Cars { get; set; }
         public DbSet<Member> Members { get; set; }
+        public DbSet<CarBak> CarsBak { get; set; }
     }
 }
