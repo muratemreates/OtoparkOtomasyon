@@ -7,7 +7,7 @@ namespace Bussiness.Validationrules.Fulentvalidation
     {
         public CarValidator()
         {
-            RuleFor(p => p.Name).NotEmpty().WithMessage("İsim boş bırakılamaz");
+            RuleFor(p => p.Name).NotNull().NotEmpty().WithMessage("İsim boş bırakılamaz");
             RuleFor(p => p.Surname).NotEmpty().WithMessage("Soyisim boş bırakılamaz");
             RuleFor(p => p.CitizenshipNumber).NotEmpty().WithMessage("Vatandaşlık nuamrası boş bırakılamaz");
             RuleFor(p => p.CarBrand).NotEmpty().WithMessage("Araç markası boş bıraklılamaz");

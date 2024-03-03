@@ -216,7 +216,7 @@
             this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_ParkSoyAd);
             this.gbx_ParkUyeBilgi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbx_ParkUyeBilgi.ForeColor = System.Drawing.Color.Gold;
-            this.gbx_ParkUyeBilgi.Location = new System.Drawing.Point(586, 51);
+            this.gbx_ParkUyeBilgi.Location = new System.Drawing.Point(589, 40);
             this.gbx_ParkUyeBilgi.Name = "gbx_ParkUyeBilgi";
             this.gbx_ParkUyeBilgi.Size = new System.Drawing.Size(373, 338);
             this.gbx_ParkUyeBilgi.TabIndex = 29;
@@ -232,6 +232,7 @@
             this.btn_Temizle.TabIndex = 20;
             this.btn_Temizle.Text = "Temizle";
             this.btn_Temizle.UseVisualStyleBackColor = false;
+            this.btn_Temizle.Click += new System.EventHandler(this.btn_Temizle_Click);
             // 
             // tbx_ParkTelefonNo
             // 
@@ -282,6 +283,7 @@
             this.btn_ParkAracGiris.TabIndex = 7;
             this.btn_ParkAracGiris.Text = "ARAÇ PARK GİRİŞ";
             this.btn_ParkAracGiris.UseVisualStyleBackColor = false;
+            this.btn_ParkAracGiris.Click += new System.EventHandler(this.btn_ParkAracGiris_Click);
             // 
             // lbl_TelefonNo
             // 

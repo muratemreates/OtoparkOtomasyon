@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Bussiness.Abstract;
+using Bussiness.Utilities;
+using Bussiness.Validationrules.Fulentvalidation;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -15,6 +17,7 @@ namespace Bussiness.Concrete
         private readonly ICarDal _carDal;
         public void Add(Car car)
         {
+            ValidationTool.Validate(new CarValidator(),car);
            _carDal.Add(car);
         }
 

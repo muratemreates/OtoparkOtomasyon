@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using Bussiness.DependencyResolvers.Ninject;
+using Entities.Concrete;
 
 namespace PARKOT.WindowsFormUI
 {
@@ -23,7 +24,28 @@ namespace PARKOT.WindowsFormUI
         {
             dgw_Cars.DataSource = _carService.GetAll();
         }
+        private void btn_ParkAracGiris_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _carService.Add(new Car
+                {
+                    Name = tbx_ParkAd.Text,
+                    Surname = tbx_ParkSoyad.Text,
+                    CitizenshipNumber = tbx_ParkTcNo.Text,
+                    Gsm = tbx_ParkTelefonNo.Text,
+                    CarBrand = tbx_ParkMarka.Text,
+                    NumberPlate = tbx_ParkPlaka.Text,
+                    CarPark = cb_OtoParkYeri.SelectedItem.ToString(),
+                    ParkingDate = DateTime.Now,
+                });
 
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show($"{exception.Message}","HATA",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
 
 
         #region Çıkış Butonu işemleri
@@ -72,5 +94,25 @@ namespace PARKOT.WindowsFormUI
 
         #endregion
 
+        #region Metotlarım
+        void TExtBoxSil()
+        {
+            tbx_ParkAd.Text = "";
+            tbx_ParkSoyad.Text = "";
+            tbx_ParkTcNo.Text = "";
+            tbx_ParkTelefonNo.Text = "";
+            tbx_ParkMarka.Text = "";
+            tbx_ParkPlaka.Text = "";
+        }
+
+
+        #endregion
+
+        private void btn_Temizle_Click(object sender, EventArgs e)
+        {
+            TExtBoxSil();
+        }
+
+        
     }
 }
