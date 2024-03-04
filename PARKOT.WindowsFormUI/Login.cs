@@ -11,17 +11,16 @@ namespace PARKOT.WindowsFormUI
     public partial class Parkot : Form
     {
         private readonly ICarService _carService;
-        //private readonly IMemberService _memberService;
         private readonly ICarBakService _carBakService;
 
         public Parkot()
         {
             InitializeComponent();
             _carService = InstanceFactory.GetIstance<ICarService>();
-            // _memberService = InstanceFactory.GetIstance<IMemberService>();
             _carBakService = InstanceFactory.GetIstance<ICarBakService>();
             ParkButonlarim();
         }
+
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,35 +42,35 @@ namespace PARKOT.WindowsFormUI
             int left = 0;
             int top = 0;
             int sayac = 0;
-            // var adet = Properties.Settings.Default.Adet;
-            for (int i = 1; i <= 20; i++)
+            var adet = Properties.Settings.Default.Adet;
+            for (int i = 1; i <= adet; i++)
             {
                 var buton = new Button();
-                buton.Width = 50;//Properties.Settings.Default.ButonGenislik;
-                buton.Height = 50; // Properties.Settings.Default.ButonYukseklik;
+                buton.Width = Properties.Settings.Default.ButonGenislik;
+                buton.Height = Properties.Settings.Default.ButonYukseklik;
 
                 buton.Left = left;
                 buton.Top = top;
-                left += 50;//Properties.Settings.Default.ButonSol;
+                left += Properties.Settings.Default.ButonGenislik;
 
-                // buton.BackColor = Properties.Settings.Default.Yesil;
+                buton.BackColor = Properties.Settings.Default.Yesil;
                 buton.Text = i.ToString();
                 buton.Tag = i.ToString();
                 buton.Click += ClickOlayim;
                 PanelPark.Controls.Add(buton); // panele ekleme yapıldı
                 sayac++;
 
-                if (sayac == 4)
+                if (sayac == 7)
                 {
                     left = 0;
-                    top += 50; //Properties.Settings.Default.ButonYukari;
+                    top += Properties.Settings.Default.ButonYukseklik;
                     sayac = 0;
                 }
             }
 
         }
 
-      
+
 
         private void btn_ParkAracGiris_Click(object sender, EventArgs e)
         {
@@ -102,7 +101,6 @@ namespace PARKOT.WindowsFormUI
                     ParkingDate = DateTime.Now,
                 });
 
-                OtoParkEkleme();
 
                 MessageBox.Show("Araç park edildi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TExtBoxSil();
@@ -112,32 +110,11 @@ namespace PARKOT.WindowsFormUI
             }
             catch (Exception exception)
             {
-                if (exception == exception.InnerException)
-                {
-                    MessageBox.Show($"{exception.InnerException.Message}", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
                 MessageBox.Show($"{exception.Message}", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
             }
         }
 
-        private void OtoParkEkleme()
-        {
-           // var otoParkListem = Properties.Settings.Default.otoParkListem;
-           
-            lstbox_OtoPark.Items.Add(lbl_ParkYeriNo.Text);
-            //otoParkListem.Add(lbl_ParkYeriNo.Text);
-            //Properties.Settings.Default.Save();
-        }
-
-        void OtoParkSilme()
-        {
-           // var otoParkListem = Properties.Settings.Default.otoParkListem;
-           var secilenPark = lstbox_OtoPark.SelectedItem;
-           secilenPark = 
-           lstbox_OtoPark.Items.Remove(dgw_Cars.);
-        }
 
         private void btn_ParkAracCikis_Click(object sender, EventArgs e)
         {
@@ -146,14 +123,14 @@ namespace PARKOT.WindowsFormUI
 
             if (message == DialogResult.Yes && dgw_Cars.CurrentRow != null)
             {
-                    _carService.Delete(new Car
-                    {
-                        Id = Convert.ToInt32(dgw_Cars.CurrentRow.Cells[0].Value),
-                    });
-                    MessageBox.Show("Araç park yerinden çıkarıldı", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadCars();
-                    TExtBoxSil();
-                    btn_ParkAracCikis.Enabled = false;
+                _carService.Delete(new Car
+                {
+                    Id = Convert.ToInt32(dgw_Cars.CurrentRow.Cells[0].Value),
+                });
+                MessageBox.Show("Araç park yerinden çıkarıldı", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadCars();
+                TExtBoxSil();
+                btn_ParkAracCikis.Enabled = false;
             }
             else
             {
@@ -214,6 +191,18 @@ namespace PARKOT.WindowsFormUI
         {
             TExtBoxSil();
         }
+
+        private void tbx_ParkTcNo_Click(object sender, EventArgs e)
+        {
+            tbx_ParkTcNo.SelectionStart = 0;
+
+        }
+
+        private void tbx_ParkTelefonNo_Click(object sender, EventArgs e)
+        {
+            tbx_ParkTelefonNo.SelectionStart = 6;
+
+        }
         #endregion
 
         #region Metotlarım
@@ -249,7 +238,7 @@ namespace PARKOT.WindowsFormUI
                 tbx_ParkMarka.Text = dgw_Cars.CurrentRow.Cells[5].Value.ToString();
                 tbx_ParkPlaka.Text = dgw_Cars.CurrentRow.Cells[6].Value.ToString();
                 btn_ParkAracCikis.Enabled = true;
-                lstbox_OtoPark.SelectedItem = dgw_Cars.CurrentRow.Cells[7].Value;
+                //lstbox_OtoPark.SelectedItem = dgw_Cars.CurrentRow.Cells[7].Value;
                 lbl_Plakalar.Text = ($"{dgw_Cars.CurrentRow.Cells[1].Value} " +
                                      $"\t{dgw_Cars.CurrentRow.Cells[2].Value}" +
                                      $"\n{dgw_Cars.CurrentRow.Cells[6].Value}");
@@ -258,23 +247,13 @@ namespace PARKOT.WindowsFormUI
             }
             else
             {
-              
+
             }
-   
+
         }
 
         #endregion
 
-        private void tbx_ParkTcNo_Click(object sender, EventArgs e)
-        {
-            tbx_ParkTcNo.SelectionStart = 0;
 
-        }
-
-        private void tbx_ParkTelefonNo_Click(object sender, EventArgs e)
-        {
-            tbx_ParkTelefonNo.SelectionStart = 6;
-
-        }
     }
 }

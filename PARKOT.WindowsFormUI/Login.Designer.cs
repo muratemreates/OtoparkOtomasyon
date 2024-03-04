@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Parkot));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelPark = new System.Windows.Forms.Panel();
             this.checkbox_Verigizle = new System.Windows.Forms.CheckBox();
             this.lbl_Cikis = new System.Windows.Forms.Label();
@@ -37,7 +37,6 @@
             this.lbl_bosParkSayisi = new System.Windows.Forms.Label();
             this.lbl_Ucret = new System.Windows.Forms.Label();
             this.lbl_Plakalar = new System.Windows.Forms.Label();
-            this.lstbox_OtoPark = new System.Windows.Forms.ListBox();
             this.picture_Cikis = new System.Windows.Forms.PictureBox();
             this.gbx_ParkTcArama = new System.Windows.Forms.GroupBox();
             this.tbx_ParkTcNoArama = new System.Windows.Forms.TextBox();
@@ -71,9 +70,9 @@
             // 
             this.PanelPark.AutoScroll = true;
             this.PanelPark.BackColor = System.Drawing.Color.Transparent;
-            this.PanelPark.Location = new System.Drawing.Point(44, 44);
+            this.PanelPark.Location = new System.Drawing.Point(14, 44);
             this.PanelPark.Name = "PanelPark";
-            this.PanelPark.Size = new System.Drawing.Size(273, 334);
+            this.PanelPark.Size = new System.Drawing.Size(484, 334);
             this.PanelPark.TabIndex = 36;
             // 
             // checkbox_Verigizle
@@ -108,7 +107,7 @@
             this.pnl_Fis.Controls.Add(this.lbl_bosParkSayisi);
             this.pnl_Fis.Controls.Add(this.lbl_Ucret);
             this.pnl_Fis.Controls.Add(this.lbl_Plakalar);
-            this.pnl_Fis.Location = new System.Drawing.Point(349, 44);
+            this.pnl_Fis.Location = new System.Drawing.Point(517, 44);
             this.pnl_Fis.Name = "pnl_Fis";
             this.pnl_Fis.Size = new System.Drawing.Size(200, 252);
             this.pnl_Fis.TabIndex = 33;
@@ -146,18 +145,6 @@
             this.lbl_Plakalar.Size = new System.Drawing.Size(0, 25);
             this.lbl_Plakalar.TabIndex = 21;
             // 
-            // lstbox_OtoPark
-            // 
-            this.lstbox_OtoPark.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lstbox_OtoPark.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lstbox_OtoPark.ForeColor = System.Drawing.Color.Gold;
-            this.lstbox_OtoPark.FormattingEnabled = true;
-            this.lstbox_OtoPark.ItemHeight = 25;
-            this.lstbox_OtoPark.Location = new System.Drawing.Point(979, 51);
-            this.lstbox_OtoPark.Name = "lstbox_OtoPark";
-            this.lstbox_OtoPark.Size = new System.Drawing.Size(171, 304);
-            this.lstbox_OtoPark.TabIndex = 32;
-            // 
             // picture_Cikis
             // 
             this.picture_Cikis.BackColor = System.Drawing.Color.Transparent;
@@ -178,7 +165,7 @@
             this.gbx_ParkTcArama.Controls.Add(this.tbx_ParkTcNoArama);
             this.gbx_ParkTcArama.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbx_ParkTcArama.ForeColor = System.Drawing.Color.Gold;
-            this.gbx_ParkTcArama.Location = new System.Drawing.Point(349, 334);
+            this.gbx_ParkTcArama.Location = new System.Drawing.Point(517, 334);
             this.gbx_ParkTcArama.Name = "gbx_ParkTcArama";
             this.gbx_ParkTcArama.Size = new System.Drawing.Size(216, 61);
             this.gbx_ParkTcArama.TabIndex = 30;
@@ -217,7 +204,7 @@
             this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_ParkSoyAd);
             this.gbx_ParkUyeBilgi.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbx_ParkUyeBilgi.ForeColor = System.Drawing.Color.Gold;
-            this.gbx_ParkUyeBilgi.Location = new System.Drawing.Point(589, 40);
+            this.gbx_ParkUyeBilgi.Location = new System.Drawing.Point(757, 40);
             this.gbx_ParkUyeBilgi.Name = "gbx_ParkUyeBilgi";
             this.gbx_ParkUyeBilgi.Size = new System.Drawing.Size(373, 338);
             this.gbx_ParkUyeBilgi.TabIndex = 29;
@@ -430,14 +417,14 @@
             this.dgw_Cars.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgw_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_Cars.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgw_Cars.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgw_Cars.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgw_Cars.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgw_Cars.Location = new System.Drawing.Point(14, 413);
             this.dgw_Cars.Margin = new System.Windows.Forms.Padding(4);
@@ -460,7 +447,6 @@
             this.Controls.Add(this.checkbox_Verigizle);
             this.Controls.Add(this.lbl_Cikis);
             this.Controls.Add(this.pnl_Fis);
-            this.Controls.Add(this.lstbox_OtoPark);
             this.Controls.Add(this.picture_Cikis);
             this.Controls.Add(this.gbx_ParkTcArama);
             this.Controls.Add(this.gbx_ParkUyeBilgi);
@@ -492,7 +478,6 @@
         private System.Windows.Forms.Label lbl_bosParkSayisi;
         private System.Windows.Forms.Label lbl_Ucret;
         private System.Windows.Forms.Label lbl_Plakalar;
-        private System.Windows.Forms.ListBox lstbox_OtoPark;
         private System.Windows.Forms.PictureBox picture_Cikis;
         private System.Windows.Forms.GroupBox gbx_ParkTcArama;
         private System.Windows.Forms.TextBox tbx_ParkTcNoArama;

@@ -25,12 +25,49 @@ namespace PARKOT.WindowsFormUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection otoParkListem {
+        [global::System.Configuration.DefaultSettingValueAttribute("Lime")]
+        public global::System.Drawing.Color Yesil {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["otoParkListem"]));
+                return ((global::System.Drawing.Color)(this["Yesil"]));
             }
             set {
-                this["otoParkListem"] = value;
+                this["Yesil"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int ButonGenislik {
+            get {
+                return ((int)(this["ButonGenislik"]));
+            }
+            set {
+                this["ButonGenislik"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int ButonYukseklik {
+            get {
+                return ((int)(this["ButonYukseklik"]));
+            }
+            set {
+                this["ButonYukseklik"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public int Adet {
+            get {
+                return ((int)(this["Adet"]));
+            }
+            set {
+                this["Adet"] = value;
             }
         }
     }
