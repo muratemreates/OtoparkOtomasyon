@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Bussiness.Abstract;
+using Bussiness.Utilities;
+using Bussiness.Validationrules.Fulentvalidation;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -25,7 +27,7 @@ namespace Bussiness.Concrete
 
         public void Add(CarBak car)
         {
-            _carBakDal.Add(car);
+                _carBakDal.Add(car);
         }
     }
 }

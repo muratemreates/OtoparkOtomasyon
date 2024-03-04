@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Parkot));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelPark = new System.Windows.Forms.Panel();
             this.checkbox_Verigizle = new System.Windows.Forms.CheckBox();
             this.lbl_Cikis = new System.Windows.Forms.Label();
@@ -41,14 +42,14 @@
             this.gbx_ParkTcArama = new System.Windows.Forms.GroupBox();
             this.tbx_ParkTcNoArama = new System.Windows.Forms.TextBox();
             this.gbx_ParkUyeBilgi = new System.Windows.Forms.GroupBox();
+            this.lbl_ParkYeriNo = new System.Windows.Forms.Label();
+            this.lbl_ParkYeri = new System.Windows.Forms.Label();
             this.btn_Temizle = new System.Windows.Forms.Button();
             this.tbx_ParkTelefonNo = new System.Windows.Forms.MaskedTextBox();
             this.tbx_ParkTcNo = new System.Windows.Forms.MaskedTextBox();
             this.btn_ParkAracCikis = new System.Windows.Forms.Button();
             this.btn_ParkAracGiris = new System.Windows.Forms.Button();
             this.lbl_TelefonNo = new System.Windows.Forms.Label();
-            this.lbl_ParkYeri = new System.Windows.Forms.Label();
-            this.cb_OtoParkYeri = new System.Windows.Forms.ComboBox();
             this.tbx_ParkAd = new System.Windows.Forms.TextBox();
             this.lbl_ParkPlaka = new System.Windows.Forms.Label();
             this.tbx_ParkSoyad = new System.Windows.Forms.TextBox();
@@ -72,7 +73,7 @@
             this.PanelPark.BackColor = System.Drawing.Color.Transparent;
             this.PanelPark.Location = new System.Drawing.Point(44, 44);
             this.PanelPark.Name = "PanelPark";
-            this.PanelPark.Size = new System.Drawing.Size(246, 334);
+            this.PanelPark.Size = new System.Drawing.Size(273, 334);
             this.PanelPark.TabIndex = 36;
             // 
             // checkbox_Verigizle
@@ -83,7 +84,7 @@
             this.checkbox_Verigizle.Location = new System.Drawing.Point(23, 386);
             this.checkbox_Verigizle.Name = "checkbox_Verigizle";
             this.checkbox_Verigizle.Size = new System.Drawing.Size(96, 20);
-            this.checkbox_Verigizle.TabIndex = 35;
+            this.checkbox_Verigizle.TabIndex = 10;
             this.checkbox_Verigizle.Text = "Veriyi Gizle";
             this.checkbox_Verigizle.UseVisualStyleBackColor = false;
             this.checkbox_Verigizle.CheckedChanged += new System.EventHandler(this.checkbox_Verigizle_CheckedChanged);
@@ -192,19 +193,19 @@
             this.tbx_ParkTcNoArama.Location = new System.Drawing.Point(18, 22);
             this.tbx_ParkTcNoArama.Name = "tbx_ParkTcNoArama";
             this.tbx_ParkTcNoArama.Size = new System.Drawing.Size(182, 22);
-            this.tbx_ParkTcNoArama.TabIndex = 0;
+            this.tbx_ParkTcNoArama.TabIndex = 8;
             // 
             // gbx_ParkUyeBilgi
             // 
             this.gbx_ParkUyeBilgi.BackColor = System.Drawing.Color.Transparent;
+            this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_ParkYeriNo);
+            this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_ParkYeri);
             this.gbx_ParkUyeBilgi.Controls.Add(this.btn_Temizle);
             this.gbx_ParkUyeBilgi.Controls.Add(this.tbx_ParkTelefonNo);
             this.gbx_ParkUyeBilgi.Controls.Add(this.tbx_ParkTcNo);
             this.gbx_ParkUyeBilgi.Controls.Add(this.btn_ParkAracCikis);
             this.gbx_ParkUyeBilgi.Controls.Add(this.btn_ParkAracGiris);
             this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_TelefonNo);
-            this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_ParkYeri);
-            this.gbx_ParkUyeBilgi.Controls.Add(this.cb_OtoParkYeri);
             this.gbx_ParkUyeBilgi.Controls.Add(this.tbx_ParkAd);
             this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_ParkPlaka);
             this.gbx_ParkUyeBilgi.Controls.Add(this.tbx_ParkSoyad);
@@ -223,13 +224,34 @@
             this.gbx_ParkUyeBilgi.TabStop = false;
             this.gbx_ParkUyeBilgi.Text = "Kişisel Bilgiler";
             // 
+            // lbl_ParkYeriNo
+            // 
+            this.lbl_ParkYeriNo.AutoSize = true;
+            this.lbl_ParkYeriNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_ParkYeriNo.Location = new System.Drawing.Point(145, 226);
+            this.lbl_ParkYeriNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_ParkYeriNo.Name = "lbl_ParkYeriNo";
+            this.lbl_ParkYeriNo.Size = new System.Drawing.Size(0, 25);
+            this.lbl_ParkYeriNo.TabIndex = 23;
+            // 
+            // lbl_ParkYeri
+            // 
+            this.lbl_ParkYeri.AutoSize = true;
+            this.lbl_ParkYeri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_ParkYeri.Location = new System.Drawing.Point(16, 226);
+            this.lbl_ParkYeri.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_ParkYeri.Name = "lbl_ParkYeri";
+            this.lbl_ParkYeri.Size = new System.Drawing.Size(87, 20);
+            this.lbl_ParkYeri.TabIndex = 22;
+            this.lbl_ParkYeri.Text = "Park Yeri :";
+            // 
             // btn_Temizle
             // 
             this.btn_Temizle.BackColor = System.Drawing.Color.Black;
             this.btn_Temizle.Location = new System.Drawing.Point(25, 259);
             this.btn_Temizle.Name = "btn_Temizle";
             this.btn_Temizle.Size = new System.Drawing.Size(78, 28);
-            this.btn_Temizle.TabIndex = 20;
+            this.btn_Temizle.TabIndex = 9;
             this.btn_Temizle.Text = "Temizle";
             this.btn_Temizle.UseVisualStyleBackColor = false;
             this.btn_Temizle.Click += new System.EventHandler(this.btn_Temizle_Click);
@@ -240,10 +262,11 @@
             this.tbx_ParkTelefonNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbx_ParkTelefonNo.ForeColor = System.Drawing.Color.Gold;
             this.tbx_ParkTelefonNo.Location = new System.Drawing.Point(133, 131);
-            this.tbx_ParkTelefonNo.Mask = "(999) 000-00-00";
+            this.tbx_ParkTelefonNo.Mask = "+\\9\\0\\ (500) 000-00-00";
             this.tbx_ParkTelefonNo.Name = "tbx_ParkTelefonNo";
             this.tbx_ParkTelefonNo.Size = new System.Drawing.Size(229, 22);
             this.tbx_ParkTelefonNo.TabIndex = 3;
+            this.tbx_ParkTelefonNo.Click += new System.EventHandler(this.tbx_ParkTelefonNo_Click);
             // 
             // tbx_ParkTcNo
             // 
@@ -256,6 +279,7 @@
             this.tbx_ParkTcNo.Size = new System.Drawing.Size(229, 22);
             this.tbx_ParkTcNo.TabIndex = 2;
             this.tbx_ParkTcNo.ValidatingType = typeof(int);
+            this.tbx_ParkTcNo.Click += new System.EventHandler(this.tbx_ParkTcNo_Click);
             // 
             // btn_ParkAracCikis
             // 
@@ -267,7 +291,7 @@
             this.btn_ParkAracCikis.Location = new System.Drawing.Point(137, 297);
             this.btn_ParkAracCikis.Name = "btn_ParkAracCikis";
             this.btn_ParkAracCikis.Size = new System.Drawing.Size(181, 34);
-            this.btn_ParkAracCikis.TabIndex = 8;
+            this.btn_ParkAracCikis.TabIndex = 7;
             this.btn_ParkAracCikis.Text = "ARAÇ PARK ÇIKIŞ";
             this.btn_ParkAracCikis.UseVisualStyleBackColor = false;
             this.btn_ParkAracCikis.Click += new System.EventHandler(this.btn_ParkAracCikis_Click);
@@ -281,7 +305,7 @@
             this.btn_ParkAracGiris.Location = new System.Drawing.Point(137, 255);
             this.btn_ParkAracGiris.Name = "btn_ParkAracGiris";
             this.btn_ParkAracGiris.Size = new System.Drawing.Size(181, 34);
-            this.btn_ParkAracGiris.TabIndex = 7;
+            this.btn_ParkAracGiris.TabIndex = 6;
             this.btn_ParkAracGiris.Text = "ARAÇ PARK GİRİŞ";
             this.btn_ParkAracGiris.UseVisualStyleBackColor = false;
             this.btn_ParkAracGiris.Click += new System.EventHandler(this.btn_ParkAracGiris_Click);
@@ -296,29 +320,6 @@
             this.lbl_TelefonNo.Size = new System.Drawing.Size(74, 20);
             this.lbl_TelefonNo.TabIndex = 19;
             this.lbl_TelefonNo.Text = "Telefon :";
-            // 
-            // lbl_ParkYeri
-            // 
-            this.lbl_ParkYeri.AutoSize = true;
-            this.lbl_ParkYeri.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_ParkYeri.Location = new System.Drawing.Point(20, 229);
-            this.lbl_ParkYeri.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_ParkYeri.Name = "lbl_ParkYeri";
-            this.lbl_ParkYeri.Size = new System.Drawing.Size(87, 20);
-            this.lbl_ParkYeri.TabIndex = 18;
-            this.lbl_ParkYeri.Text = "Park Yeri :";
-            // 
-            // cb_OtoParkYeri
-            // 
-            this.cb_OtoParkYeri.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.cb_OtoParkYeri.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_OtoParkYeri.ForeColor = System.Drawing.Color.Gold;
-            this.cb_OtoParkYeri.FormattingEnabled = true;
-            this.cb_OtoParkYeri.Location = new System.Drawing.Point(137, 225);
-            this.cb_OtoParkYeri.Name = "cb_OtoParkYeri";
-            this.cb_OtoParkYeri.Size = new System.Drawing.Size(138, 24);
-            this.cb_OtoParkYeri.Sorted = true;
-            this.cb_OtoParkYeri.TabIndex = 6;
             // 
             // tbx_ParkAd
             // 
@@ -429,6 +430,14 @@
             this.dgw_Cars.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dgw_Cars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgw_Cars.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgw_Cars.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgw_Cars.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgw_Cars.Location = new System.Drawing.Point(14, 413);
             this.dgw_Cars.Margin = new System.Windows.Forms.Padding(4);
@@ -436,6 +445,7 @@
             this.dgw_Cars.Name = "dgw_Cars";
             this.dgw_Cars.ReadOnly = true;
             this.dgw_Cars.RowHeadersWidth = 51;
+            this.dgw_Cars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgw_Cars.Size = new System.Drawing.Size(1177, 260);
             this.dgw_Cars.TabIndex = 28;
             this.dgw_Cars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_Cars_CellClick);
@@ -493,8 +503,6 @@
         private System.Windows.Forms.Button btn_ParkAracCikis;
         private System.Windows.Forms.Button btn_ParkAracGiris;
         private System.Windows.Forms.Label lbl_TelefonNo;
-        private System.Windows.Forms.Label lbl_ParkYeri;
-        private System.Windows.Forms.ComboBox cb_OtoParkYeri;
         private System.Windows.Forms.TextBox tbx_ParkAd;
         private System.Windows.Forms.Label lbl_ParkPlaka;
         private System.Windows.Forms.TextBox tbx_ParkSoyad;
@@ -505,6 +513,8 @@
         private System.Windows.Forms.Label lbl_ParkTcNo;
         private System.Windows.Forms.Label lbl_ParkSoyAd;
         private System.Windows.Forms.DataGridView dgw_Cars;
+        private System.Windows.Forms.Label lbl_ParkYeri;
+        private System.Windows.Forms.Label lbl_ParkYeriNo;
     }
 }
 

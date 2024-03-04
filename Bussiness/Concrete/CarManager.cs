@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Bussiness.Abstract;
 using Bussiness.Utilities;
 using Bussiness.Validationrules.Fulentvalidation;
@@ -17,13 +18,14 @@ namespace Bussiness.Concrete
         private readonly ICarDal _carDal;
         public void Add(Car car)
         {
-            ValidationTool.Validate(new CarValidatorForAdd(),car);
-           _carDal.Add(car);
+            ValidationTool.Validate(new CarValidatorForAdd(), car);
+            _carDal.Add(car);
+
         }
 
         public void Delete(Car car)
         {
-           _carDal.Delete(car);
+            _carDal.Delete(car);
         }
 
         public List<Car> GetAll()
