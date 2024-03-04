@@ -7,7 +7,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Abstract
 {
-    public interface ICarBakDal:IEntitiyRespository<CarBak>
+    public interface ICarBakDal : IEntitiyRespository<CarBak>
     {
     }
 }

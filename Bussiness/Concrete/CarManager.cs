@@ -17,7 +17,7 @@ namespace Bussiness.Concrete
         private readonly ICarDal _carDal;
         public void Add(Car car)
         {
-            ValidationTool.Validate(new CarValidator(),car);
+            ValidationTool.Validate(new CarValidatorForAdd(),car);
            _carDal.Add(car);
         }
 

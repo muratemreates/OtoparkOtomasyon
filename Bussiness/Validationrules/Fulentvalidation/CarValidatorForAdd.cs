@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace Bussiness.Validationrules.Fulentvalidation
 {
-    public class CarValidator:AbstractValidator<Car>
+    public class CarValidatorForAdd:AbstractValidator<Car>
     {
-        public CarValidator()
+        public CarValidatorForAdd()
         {
             RuleFor(p => p.Name).NotNull().NotEmpty().WithMessage("İsim boş bırakılamaz");
             RuleFor(p => p.Surname).NotEmpty().WithMessage("Soyisim boş bırakılamaz");
@@ -14,7 +14,7 @@ namespace Bussiness.Validationrules.Fulentvalidation
             RuleFor(p => p.NumberPlate).NotEmpty().WithMessage("Araç plakası boş bırakılamaz");
             RuleFor(p => p.Gsm).NotEmpty().WithMessage("İletişim numarası boşi bırakılamaz");
             RuleFor(p => p.CarPark).NotEmpty().WithMessage("Park yeri seçilmeli");
-            
+
         }
     }
 }

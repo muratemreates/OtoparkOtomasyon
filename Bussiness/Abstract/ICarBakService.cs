@@ -10,5 +10,7 @@ namespace Bussiness.Abstract
     public interface ICarBakService
     {
         List<CarBak> GetAll();
+        void Add(CarBak car);
+
     }
 }

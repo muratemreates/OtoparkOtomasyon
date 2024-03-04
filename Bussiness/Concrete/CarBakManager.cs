@@ -22,5 +22,10 @@ namespace Bussiness.Concrete
         {
             return _carBakDal.GetAll();
         }
+
+        public void Add(CarBak car)
+        {
+            _carBakDal.Add(car);
+        }
     }
 }

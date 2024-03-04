@@ -19,33 +19,88 @@ namespace PARKOT.WindowsFormUI
             _carBakService = InstanceFactory.GetIstance<ICarBakService>();
         }
 
-      
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            LoadCars();
+        }
+
+        private void LoadCars()
+        {
             dgw_Cars.DataSource = _carService.GetAll();
+        }
+        private void dgw_Cars_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            OtomatikHucreDoldur();
         }
         private void btn_ParkAracGiris_Click(object sender, EventArgs e)
         {
             try
             {
-                _carService.Add(new Car
+                if (cb_OtoParkYeri.SelectedIndex != -1 && cb_OtoParkYeri.Items.Count > 0)
                 {
-                    Name = tbx_ParkAd.Text,
-                    Surname = tbx_ParkSoyad.Text,
-                    CitizenshipNumber = tbx_ParkTcNo.Text,
-                    Gsm = tbx_ParkTelefonNo.Text,
-                    CarBrand = tbx_ParkMarka.Text,
-                    NumberPlate = tbx_ParkPlaka.Text,
-                    CarPark = cb_OtoParkYeri.SelectedItem.ToString(),
-                    ParkingDate = DateTime.Now,
-                });
+                    _carService.Add(new Car
+                    {
+                        Name = tbx_ParkAd.Text.ToUpper(),
+                        Surname = tbx_ParkSoyad.Text.ToUpper(),
+                        CitizenshipNumber = tbx_ParkTcNo.Text,
+                        Gsm = tbx_ParkTelefonNo.Text,
+                        CarBrand = tbx_ParkMarka.Text.ToUpper(),
+                        NumberPlate = tbx_ParkPlaka.Text.ToUpper(),
+                        CarPark = cb_OtoParkYeri.SelectedItem.ToString(),
+                        ParkingDate = DateTime.Now,
+                    });
 
+                    _carBakService.Add(new CarBak
+                    {
+                        Name = tbx_ParkAd.Text.ToUpper(),
+                        Surname = tbx_ParkSoyad.Text.ToUpper(),
+                        CitizenshipNumber = tbx_ParkTcNo.Text,
+                        Gsm = tbx_ParkTelefonNo.Text,
+                        CarBrand = tbx_ParkMarka.Text.ToUpper(),
+                        NumberPlate = tbx_ParkPlaka.Text.ToUpper(),
+                        CarPark = cb_OtoParkYeri.SelectedItem.ToString(),
+                        ParkingDate = DateTime.Now,
+                    });
+
+                    MessageBox.Show("Araç park edildi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TExtBoxSil();
+                    LoadCars();
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen Otopark Yeri Seçiniz","BİLGİ",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+               
             }
             catch (Exception exception)
             {
-                MessageBox.Show($"{exception.Message}","HATA",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show($"{exception.Message}", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btn_ParkAracCikis_Click(object sender, EventArgs e)
+        {
+            var message = MessageBox.Show("Araç otoparktan çkıakrtılsın mı ?", "ÇIKIŞ", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (message == DialogResult.Yes)
+            {
+                if (dgw_Cars.CurrentRow != null)
+                {
+                    _carService.Delete(new Car
+                    {
+                        Id = Convert.ToInt32(dgw_Cars.CurrentRow.Cells[0].Value),
+                    });
+                    MessageBox.Show("Araç park yerinden çıkarılfı","BİLGİ",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    LoadCars();
+                    TExtBoxSil();
+
+                }
+               
+            }
+        }
+      
 
 
         #region Çıkış Butonu işemleri
@@ -79,6 +134,8 @@ namespace PARKOT.WindowsFormUI
 
         #region Diğer küçük işlemler
 
+     
+
         private void checkbox_Verigizle_CheckedChanged(object sender, EventArgs e)
         {
             if (checkbox_Verigizle.Checked)
@@ -92,6 +149,11 @@ namespace PARKOT.WindowsFormUI
             }
         }
 
+
+        private void btn_Temizle_Click(object sender, EventArgs e)
+        {
+            TExtBoxSil();
+        }
         #endregion
 
         #region Metotlarım
@@ -106,13 +168,26 @@ namespace PARKOT.WindowsFormUI
         }
 
 
-        #endregion
-
-        private void btn_Temizle_Click(object sender, EventArgs e)
+        private void OtomatikHucreDoldur()
         {
-            TExtBoxSil();
+            tbx_ParkAd.Text = dgw_Cars.CurrentRow.Cells[1].Value.ToString();
+            tbx_ParkSoyad.Text = dgw_Cars.CurrentRow.Cells[2].Value.ToString();
+            tbx_ParkTcNo.Text = dgw_Cars.CurrentRow.Cells[3].Value.ToString();
+            tbx_ParkTelefonNo.Text = dgw_Cars.CurrentRow.Cells[4].Value.ToString();
+            tbx_ParkMarka.Text = dgw_Cars.CurrentRow.Cells[5].Value.ToString();
+            tbx_ParkPlaka.Text = dgw_Cars.CurrentRow.Cells[6].Value.ToString();
+            //btn_ParkAracCikis.Enabled = true;
+            lstbox_OtoPark.SelectedItem = dgw_Cars.CurrentRow.Cells[7].Value;
+            lbl_Plakalar.Text = ($"{dgw_Cars.CurrentRow.Cells[1].Value} " +
+                                 $"\t{dgw_Cars.CurrentRow.Cells[2].Value}" +
+                                 $"\n{dgw_Cars.CurrentRow.Cells[6].Value}");
+
+            // lbl_Ucret.Text = ($"\nÜCRET: {ÜcretHesapla().ToString("F2")}  ₺ ");
         }
 
-        
+
+        #endregion
+
+
     }
 }

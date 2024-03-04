@@ -270,6 +270,7 @@
             this.btn_ParkAracCikis.TabIndex = 8;
             this.btn_ParkAracCikis.Text = "ARAÇ PARK ÇIKIŞ";
             this.btn_ParkAracCikis.UseVisualStyleBackColor = false;
+            this.btn_ParkAracCikis.Click += new System.EventHandler(this.btn_ParkAracCikis_Click);
             // 
             // btn_ParkAracGiris
             // 
@@ -435,9 +436,9 @@
             this.dgw_Cars.Name = "dgw_Cars";
             this.dgw_Cars.ReadOnly = true;
             this.dgw_Cars.RowHeadersWidth = 51;
-            this.dgw_Cars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgw_Cars.Size = new System.Drawing.Size(1177, 260);
             this.dgw_Cars.TabIndex = 28;
+            this.dgw_Cars.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_Cars_CellClick);
             // 
             // Parkot
             // 
