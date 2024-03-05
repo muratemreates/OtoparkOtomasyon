@@ -338,6 +338,13 @@ namespace PARKOT.WindowsFormUI
             }
 
         }
+
+        private void saat_Timer_Tick(object sender, EventArgs e)
+        {
+            lbl_Saat.Text = DateTime.Now.ToString("F");
+            saat_Timer.Start();
+        }
+
     }
     #endregion
 
