@@ -1,12 +1,9 @@
 ﻿using Bussiness.Abstract;
 using System;
-using System.Collections.Specialized;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Bussiness.DependencyResolvers.Ninject;
 using Entities.Concrete;
-using PARKOT.WindowsFormUI.Properties;
 
 namespace PARKOT.WindowsFormUI
 {
@@ -31,47 +28,8 @@ namespace PARKOT.WindowsFormUI
             LoadCars();
         }
 
-        private void LoadCars()
-        {
-            dgw_Cars.DataSource = _carService.GetAll();
-        }
-        private void dgw_Cars_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            OtomatikHucreDoldur();
-        }
 
-        void ParkButonlarim()
-        {
-            int left = 0;
-            int top = 0;
-            int sayac = 0;
-            var adet = Properties.Settings.Default.Adet;
-            for (int i = 1; i <= adet; i++)
-            {
-                var buton = new Button();
-                buton.Width = Properties.Settings.Default.ButonGenislik;
-                buton.Height = Properties.Settings.Default.ButonYukseklik;
-
-                buton.Left = left;
-                buton.Top = top;
-                left += Properties.Settings.Default.ButonGenislik;
-
-                buton.BackColor = Properties.Settings.Default.Yesil;
-                buton.Text = i.ToString();
-                buton.Tag = i.ToString();
-                buton.Click += ClickOlayim;
-                PanelPark.Controls.Add(buton); // panele ekleme yapıldı
-                sayac++;
-
-                if (sayac == 7)
-                {
-                    left = 0;
-                    top += Properties.Settings.Default.ButonYukseklik;
-                    sayac = 0;
-                }
-            }
-
-        }
+        #region AraçParkİşlemleri
 
         private void btn_ParkAracGiris_Click(object sender, EventArgs e)
         {
@@ -105,7 +63,7 @@ namespace PARKOT.WindowsFormUI
                     ParkingDate = DateTime.Now,
                 });
 
-              
+
                 MessageBox.Show("Araç park edildi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TExtBoxSil();
                 LoadCars();
@@ -123,7 +81,7 @@ namespace PARKOT.WindowsFormUI
                 MessageBoxIcon.Question);
 
             if (message == DialogResult.Yes && dgw_Cars.CurrentRow != null)
-            { 
+            {
                 try
                 {
                     var otoparkim = Properties.Settings.Default.OtoparkListem;
@@ -151,6 +109,10 @@ namespace PARKOT.WindowsFormUI
                     MessageBox.Show($"{exception.Message}");
                 }
             }
+            else if (message == DialogResult.No)
+            {
+                MessageBox.Show("Çıkış işlemi iptal edildi","BİLGİ",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
             else
             {
                 MessageBox.Show("Lütfen listedenn çıkarılacak aracı seçiniz", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -158,6 +120,7 @@ namespace PARKOT.WindowsFormUI
         }
 
 
+        #endregion
 
         #region Çıkış Butonu işemleri
 
@@ -225,6 +188,47 @@ namespace PARKOT.WindowsFormUI
         #endregion
 
         #region Metotlarım
+
+        void ParkButonlarim()
+        {
+            int left = 0;
+            int top = 0;
+            int sayac = 0;
+            var adet = Properties.Settings.Default.Adet;
+            for (int i = 1; i <= adet; i++)
+            {
+                var buton = new Button();
+                buton.Width = Properties.Settings.Default.ButonGenislik;
+                buton.Height = Properties.Settings.Default.ButonYukseklik;
+
+                buton.Left = left;
+                buton.Top = top;
+                left += Properties.Settings.Default.ButonGenislik;
+
+                buton.BackColor = Properties.Settings.Default.Yesil;
+                buton.Text = i.ToString();
+                buton.Tag = i.ToString();
+                buton.Click += ClickOlayim;
+                PanelPark.Controls.Add(buton); // panele ekleme yapıldı
+                sayac++;
+
+                if (sayac == 7)
+                {
+                    left = 0;
+                    top += Properties.Settings.Default.ButonYukseklik;
+                    sayac = 0;
+                }
+            }
+
+        }
+        private void dgw_Cars_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            OtomatikHucreDoldur();
+        }
+        private void LoadCars()
+        {
+            dgw_Cars.DataSource = _carService.GetAll();
+        }
         void ButonRenkKirmizi()
         {
             var kirmizi = Properties.Settings.Default.Kirmizi;
@@ -300,13 +304,25 @@ namespace PARKOT.WindowsFormUI
                                      $"\t{dgw_Cars.CurrentRow.Cells[2].Value}" +
                                      $"\n{dgw_Cars.CurrentRow.Cells[6].Value}");
 
-                // lbl_Ucret.Text = ($"\nÜCRET: {ÜcretHesapla().ToString("F2")}  ₺ ");
+                 lbl_Ucret.Text = ($"\nÜCRET: {ÜcretHesapla().ToString("F2")}  ₺ ");
             }
             else
             {
 
             }
 
+        }
+
+        public double ÜcretHesapla()
+        {
+            var now = DateTime.Now;
+            var ilkZaman = DateTime.Parse(dgw_Cars.CurrentRow.Cells[8].Value.ToString());
+
+            TimeSpan zamanFarki = now - ilkZaman;
+
+            double ucret = zamanFarki.TotalHours * 5.0;
+
+            return ucret;
         }
 
         private void tbx_ParkTcNoArama_TextChanged(object sender, EventArgs e)
