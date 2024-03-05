@@ -1,10 +1,12 @@
 ﻿using Bussiness.Abstract;
 using System;
 using System.Collections.Specialized;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Bussiness.DependencyResolvers.Ninject;
 using Entities.Concrete;
+using PARKOT.WindowsFormUI.Properties;
 
 namespace PARKOT.WindowsFormUI
 {
@@ -19,8 +21,9 @@ namespace PARKOT.WindowsFormUI
             _carService = InstanceFactory.GetIstance<ICarService>();
             _carBakService = InstanceFactory.GetIstance<ICarBakService>();
             ParkButonlarim();
+            ButonRenkYesil();
+            ButonRenkKirmizi();
         }
-
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -70,13 +73,14 @@ namespace PARKOT.WindowsFormUI
 
         }
 
-
-
         private void btn_ParkAracGiris_Click(object sender, EventArgs e)
         {
-
             try
             {
+                Properties.Settings.Default.OtoparkListem.Add(lbl_ParkYeriNo.Text);
+                Properties.Settings.Default.Save();
+                ButonRenkKirmizi();
+
                 _carService.Add(new Car()
                 {
                     Name = tbx_ParkAd.Text.ToUpper(),
@@ -101,17 +105,14 @@ namespace PARKOT.WindowsFormUI
                     ParkingDate = DateTime.Now,
                 });
 
-
+              
                 MessageBox.Show("Araç park edildi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TExtBoxSil();
                 LoadCars();
-
-
             }
             catch (Exception exception)
             {
                 MessageBox.Show($"{exception.Message}", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -122,15 +123,33 @@ namespace PARKOT.WindowsFormUI
                 MessageBoxIcon.Question);
 
             if (message == DialogResult.Yes && dgw_Cars.CurrentRow != null)
-            {
-                _carService.Delete(new Car
+            { 
+                try
                 {
-                    Id = Convert.ToInt32(dgw_Cars.CurrentRow.Cells[0].Value),
-                });
-                MessageBox.Show("Araç park yerinden çıkarıldı", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadCars();
-                TExtBoxSil();
-                btn_ParkAracCikis.Enabled = false;
+                    var otoparkim = Properties.Settings.Default.OtoparkListem;
+                    string parkim = dgw_Cars.CurrentRow.Cells[7].Value.ToString();
+
+                    if (otoparkim.Contains(parkim))
+                    {
+                        otoparkim.Remove(parkim);
+                        Properties.Settings.Default.Save();
+                        ButonRenkYesil();
+
+                    }
+
+                    _carService.Delete(new Car
+                    {
+                        Id = Convert.ToInt32(dgw_Cars.CurrentRow.Cells[0].Value),
+                    });
+                    MessageBox.Show("Araç park yerinden çıkarıldı", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadCars();
+                    TExtBoxSil();
+                    btn_ParkAracCikis.Enabled = false;
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show($"{exception.Message}");
+                }
             }
             else
             {
@@ -206,6 +225,41 @@ namespace PARKOT.WindowsFormUI
         #endregion
 
         #region Metotlarım
+        void ButonRenkKirmizi()
+        {
+            var kirmizi = Properties.Settings.Default.Kirmizi;
+
+            foreach (var item in Properties.Settings.Default.OtoparkListem)
+            {
+                foreach (Button button in PanelPark.Controls.OfType<Button>())
+                {
+                    if (item == button.Text)
+                    {
+                        button.BackColor = kirmizi;
+                        Properties.Settings.Default.Save();
+                        button.Enabled = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        void ButonRenkYesil()
+        {
+            var yesil = Properties.Settings.Default.Yesil;
+            var kirmizi = Properties.Settings.Default.Kirmizi;
+
+            foreach (Button button in PanelPark.Controls.OfType<Button>())
+            {
+                if (button.BackColor == kirmizi)
+                {
+                    button.BackColor = yesil;
+                    Properties.Settings.Default.Save();
+                    button.Enabled = true;
+                    break;
+                }
+            }
+        }
 
         private void ClickOlayim(object sender, EventArgs e)
         {
@@ -224,6 +278,8 @@ namespace PARKOT.WindowsFormUI
             tbx_ParkPlaka.Text = "";
             lbl_Plakalar.Text = "";
             lbl_Ucret.Text = "";
+            lbl_ParkYeriNo.Text = "";
+            tbx_ParkTcNoArama.Text = "";
         }
 
 
@@ -237,6 +293,7 @@ namespace PARKOT.WindowsFormUI
                 tbx_ParkTelefonNo.Text = dgw_Cars.CurrentRow.Cells[4].Value.ToString();
                 tbx_ParkMarka.Text = dgw_Cars.CurrentRow.Cells[5].Value.ToString();
                 tbx_ParkPlaka.Text = dgw_Cars.CurrentRow.Cells[6].Value.ToString();
+                lbl_ParkYeriNo.Text = dgw_Cars.CurrentRow.Cells[7].Value.ToString();
                 btn_ParkAracCikis.Enabled = true;
                 //lstbox_OtoPark.SelectedItem = dgw_Cars.CurrentRow.Cells[7].Value;
                 lbl_Plakalar.Text = ($"{dgw_Cars.CurrentRow.Cells[1].Value} " +
@@ -252,8 +309,21 @@ namespace PARKOT.WindowsFormUI
 
         }
 
-        #endregion
+        private void tbx_ParkTcNoArama_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbx_ParkTcNoArama.Text))
+            {
+                var result = _carService.GetByCar(tbx_ParkTcNoArama.Text);
+                dgw_Cars.DataSource = result;
+            }
+            else
+            {
+                LoadCars();
+            }
 
-
+        }
     }
+    #endregion
+
+
 }

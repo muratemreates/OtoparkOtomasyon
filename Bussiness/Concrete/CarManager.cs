@@ -33,9 +33,9 @@ namespace Bussiness.Concrete
             return _carDal.GetAll();
         }
 
-        public List<Car> GetByCar(string key)
+        public List<Car> GetByCar(string filter)
         {
-            return _carDal.GetByCitizenNoSearch(key);
+            return _carDal.GetAll(p => p.CitizenshipNumber.ToLower().Contains(filter.ToLower()));
         }
     }
 }

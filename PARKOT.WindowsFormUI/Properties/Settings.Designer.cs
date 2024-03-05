@@ -70,5 +70,31 @@ namespace PARKOT.WindowsFormUI.Properties {
                 this["Adet"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsd=\"http://www.w3." +
+            "org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\r\n  <s" +
+            "tring>otoparkım</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection OtoparkListem {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["OtoparkListem"]));
+            }
+            set {
+                this["OtoparkListem"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color Kirmizi {
+            get {
+                return ((global::System.Drawing.Color)(this["Kirmizi"]));
+            }
+            set {
+                this["Kirmizi"] = value;
+            }
+        }
     }
 }
