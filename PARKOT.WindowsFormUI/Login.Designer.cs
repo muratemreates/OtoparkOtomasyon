@@ -41,7 +41,7 @@
             this.gbx_ParkTcArama = new System.Windows.Forms.GroupBox();
             this.tbx_ParkTcNoArama = new System.Windows.Forms.TextBox();
             this.gbx_ParkUyeBilgi = new System.Windows.Forms.GroupBox();
-            this.lbl_ParkYeriNo = new System.Windows.Forms.Label();
+            Parkot.lbl_ParkYeriNo = new System.Windows.Forms.Label();
             this.lbl_ParkYeri = new System.Windows.Forms.Label();
             this.btn_Temizle = new System.Windows.Forms.Button();
             this.tbx_ParkTelefonNo = new System.Windows.Forms.MaskedTextBox();
@@ -62,13 +62,15 @@
             this.lbl_Saat = new System.Windows.Forms.Label();
             this.saat_Timer = new System.Windows.Forms.Timer(this.components);
             this.gbx_UcretBilgisi = new System.Windows.Forms.GroupBox();
-            this.PanelPark = new System.Windows.Forms.Panel();
+            Parkot.PanelPark = new System.Windows.Forms.Panel();
+            this.picture_Settings = new System.Windows.Forms.PictureBox();
             this.pnl_Fis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picture_Cikis)).BeginInit();
             this.gbx_ParkTcArama.SuspendLayout();
             this.gbx_ParkUyeBilgi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Cars)).BeginInit();
             this.gbx_UcretBilgisi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture_Settings)).BeginInit();
             this.SuspendLayout();
             // 
             // checkbox_Verigizle
@@ -182,7 +184,7 @@
             // gbx_ParkUyeBilgi
             // 
             this.gbx_ParkUyeBilgi.BackColor = System.Drawing.Color.Transparent;
-            this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_ParkYeriNo);
+            this.gbx_ParkUyeBilgi.Controls.Add(Parkot.lbl_ParkYeriNo);
             this.gbx_ParkUyeBilgi.Controls.Add(this.lbl_ParkYeri);
             this.gbx_ParkUyeBilgi.Controls.Add(this.btn_Temizle);
             this.gbx_ParkUyeBilgi.Controls.Add(this.tbx_ParkTelefonNo);
@@ -210,13 +212,13 @@
             // 
             // lbl_ParkYeriNo
             // 
-            this.lbl_ParkYeriNo.AutoSize = true;
-            this.lbl_ParkYeriNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_ParkYeriNo.Location = new System.Drawing.Point(145, 226);
-            this.lbl_ParkYeriNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_ParkYeriNo.Name = "lbl_ParkYeriNo";
-            this.lbl_ParkYeriNo.Size = new System.Drawing.Size(0, 25);
-            this.lbl_ParkYeriNo.TabIndex = 23;
+            Parkot.lbl_ParkYeriNo.AutoSize = true;
+            Parkot.lbl_ParkYeriNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            Parkot.lbl_ParkYeriNo.Location = new System.Drawing.Point(145, 226);
+            Parkot.lbl_ParkYeriNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Parkot.lbl_ParkYeriNo.Name = "lbl_ParkYeriNo";
+            Parkot.lbl_ParkYeriNo.Size = new System.Drawing.Size(0, 25);
+            Parkot.lbl_ParkYeriNo.TabIndex = 23;
             // 
             // lbl_ParkYeri
             // 
@@ -464,12 +466,24 @@
             // 
             // PanelPark
             // 
-            this.PanelPark.AutoScroll = true;
-            this.PanelPark.BackColor = System.Drawing.Color.Transparent;
-            this.PanelPark.Location = new System.Drawing.Point(14, 46);
-            this.PanelPark.Name = "PanelPark";
-            this.PanelPark.Size = new System.Drawing.Size(499, 334);
-            this.PanelPark.TabIndex = 36;
+            Parkot.PanelPark.AutoScroll = true;
+            Parkot.PanelPark.BackColor = System.Drawing.Color.Transparent;
+            Parkot.PanelPark.Location = new System.Drawing.Point(14, 46);
+            Parkot.PanelPark.Name = "PanelPark";
+            Parkot.PanelPark.Size = new System.Drawing.Size(499, 334);
+            Parkot.PanelPark.TabIndex = 36;
+            // 
+            // picture_Settings
+            // 
+            this.picture_Settings.BackColor = System.Drawing.Color.Transparent;
+            this.picture_Settings.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picture_Settings.BackgroundImage")));
+            this.picture_Settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picture_Settings.Location = new System.Drawing.Point(1145, 61);
+            this.picture_Settings.Name = "picture_Settings";
+            this.picture_Settings.Size = new System.Drawing.Size(44, 41);
+            this.picture_Settings.TabIndex = 38;
+            this.picture_Settings.TabStop = false;
+            this.picture_Settings.Click += new System.EventHandler(this.picture_Settings_Click);
             // 
             // Parkot
             // 
@@ -477,7 +491,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1201, 681);
-            this.Controls.Add(this.PanelPark);
+            this.Controls.Add(this.picture_Settings);
+            this.Controls.Add(Parkot.PanelPark);
             this.Controls.Add(this.gbx_UcretBilgisi);
             this.Controls.Add(this.lbl_Saat);
             this.Controls.Add(this.checkbox_Verigizle);
@@ -500,6 +515,7 @@
             this.gbx_ParkUyeBilgi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Cars)).EndInit();
             this.gbx_UcretBilgisi.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picture_Settings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,11 +549,12 @@
         private System.Windows.Forms.Label lbl_ParkSoyAd;
         private System.Windows.Forms.DataGridView dgw_Cars;
         private System.Windows.Forms.Label lbl_ParkYeri;
-        private System.Windows.Forms.Label lbl_ParkYeriNo;
+        private static System.Windows.Forms.Label lbl_ParkYeriNo;
         private System.Windows.Forms.Label lbl_Saat;
         private System.Windows.Forms.Timer saat_Timer;
         private System.Windows.Forms.GroupBox gbx_UcretBilgisi;
-        private System.Windows.Forms.Panel PanelPark;
+        public static System.Windows.Forms.Panel PanelPark;
+        private System.Windows.Forms.PictureBox picture_Settings;
     }
 }
 

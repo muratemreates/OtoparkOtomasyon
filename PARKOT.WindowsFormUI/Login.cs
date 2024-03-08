@@ -189,7 +189,7 @@ namespace PARKOT.WindowsFormUI
 
         #region Metotlarım
 
-        void ParkButonlarim()
+       public static void ParkButonlarim()
         {
             int left = 0;
             int top = 0;
@@ -224,12 +224,13 @@ namespace PARKOT.WindowsFormUI
         private void dgw_Cars_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             OtomatikHucreDoldur();
+            
         }
         private void LoadCars()
         {
             dgw_Cars.DataSource = _carService.GetAll();
         }
-        void ButonRenkKirmizi()
+        public static void ButonRenkKirmizi()
         {
             var kirmizi = Properties.Settings.Default.Kirmizi;
 
@@ -248,7 +249,7 @@ namespace PARKOT.WindowsFormUI
             }
         }
 
-        void ButonRenkYesil()
+       public static void ButonRenkYesil()
         {
             var yesil = Properties.Settings.Default.Yesil;
             var kirmizi = Properties.Settings.Default.Kirmizi;
@@ -265,7 +266,7 @@ namespace PARKOT.WindowsFormUI
             }
         }
 
-        private void ClickOlayim(object sender, EventArgs e)
+        public static void ClickOlayim(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
 
@@ -315,12 +316,13 @@ namespace PARKOT.WindowsFormUI
 
         public double ÜcretHesapla()
         {
+            var fiyat = Properties.Settings.Default.Ucret;
             var now = DateTime.Now;
             var ilkZaman = DateTime.Parse(dgw_Cars.CurrentRow.Cells[8].Value.ToString());
 
             TimeSpan zamanFarki = now - ilkZaman;
 
-            double ucret = zamanFarki.TotalHours * 5.0;
+            double ucret = zamanFarki.TotalHours * fiyat;
 
             return ucret;
         }
@@ -345,6 +347,12 @@ namespace PARKOT.WindowsFormUI
             saat_Timer.Start();
         }
 
+        private void picture_Settings_Click(object sender, EventArgs e)
+        {
+            ParkotSettings settings = new ParkotSettings();
+            settings.ShowDialog();
+           
+        }
     }
     #endregion
 
