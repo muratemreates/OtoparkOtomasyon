@@ -37,8 +37,6 @@ namespace PARKOT.WindowsFormUI
             {
                 if (TextBoxValid())
                 {
-                   
-
                     _carService.Add(new Car()
                     {
                         Name = tbx_ParkAd.Text.ToUpper(),
@@ -72,9 +70,9 @@ namespace PARKOT.WindowsFormUI
                 }
                 else
                 {
-                    MessageBox.Show("Test");
+                    MessageBox.Show("Lütfen tüm alanalrı eksiksik doldurun","HATA",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
-                
+
             }
             catch (Exception exception)
             {
@@ -119,7 +117,7 @@ namespace PARKOT.WindowsFormUI
             }
             else if (message == DialogResult.No)
             {
-                MessageBox.Show("Çıkış işlemi iptal edildi","BİLGİ",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Çıkış işlemi iptal edildi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -242,7 +240,7 @@ namespace PARKOT.WindowsFormUI
         private void dgw_Cars_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             OtomatikHucreDoldur();
-            
+
         }
         private void LoadCars()
         {
@@ -267,7 +265,7 @@ namespace PARKOT.WindowsFormUI
             }
         }
 
-       public static void ButonRenkYesil()
+        public static void ButonRenkYesil()
         {
             var yesil = Properties.Settings.Default.Yesil;
             var kirmizi = Properties.Settings.Default.Kirmizi;
@@ -323,7 +321,7 @@ namespace PARKOT.WindowsFormUI
                                      $"\t{dgw_Cars.CurrentRow.Cells[2].Value}" +
                                      $"\n{dgw_Cars.CurrentRow.Cells[6].Value}");
 
-                 lbl_Ucret.Text = ($"\nÜCRET: {ÜcretHesapla().ToString("F2")}  ₺ ");
+                lbl_Ucret.Text = ($"\nÜCRET: {ÜcretHesapla().ToString("F2")}  ₺ ");
             }
             else
             {
@@ -369,7 +367,7 @@ namespace PARKOT.WindowsFormUI
         {
             ParkotSettings settings = new ParkotSettings();
             settings.ShowDialog();
-           
+
         }
     }
     #endregion
