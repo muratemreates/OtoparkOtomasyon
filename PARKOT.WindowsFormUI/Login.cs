@@ -35,38 +35,46 @@ namespace PARKOT.WindowsFormUI
         {
             try
             {
-                Properties.Settings.Default.OtoparkListem.Add(lbl_ParkYeriNo.Text);
-                Properties.Settings.Default.Save();
-                ButonRenkKirmizi();
-
-                _carService.Add(new Car()
+                if (TextBoxValid())
                 {
-                    Name = tbx_ParkAd.Text.ToUpper(),
-                    Surname = tbx_ParkSoyad.Text.ToUpper(),
-                    CitizenshipNumber = tbx_ParkTcNo.Text,
-                    Gsm = tbx_ParkTelefonNo.Text,
-                    CarBrand = tbx_ParkMarka.Text.ToUpper(),
-                    NumberPlate = tbx_ParkPlaka.Text.ToUpper(),
-                    CarPark = lbl_ParkYeriNo.Text,
-                    ParkingDate = DateTime.Now,
-                });
+                   
 
-                _carBakService.Add(new CarBak()
+                    _carService.Add(new Car()
+                    {
+                        Name = tbx_ParkAd.Text.ToUpper(),
+                        Surname = tbx_ParkSoyad.Text.ToUpper(),
+                        CitizenshipNumber = tbx_ParkTcNo.Text,
+                        Gsm = tbx_ParkTelefonNo.Text,
+                        CarBrand = tbx_ParkMarka.Text.ToUpper(),
+                        NumberPlate = tbx_ParkPlaka.Text.ToUpper(),
+                        CarPark = lbl_ParkYeriNo.Text,
+                        ParkingDate = DateTime.Now,
+                    });
+
+                    _carBakService.Add(new CarBak()
+                    {
+                        Name = tbx_ParkAd.Text.ToUpper(),
+                        Surname = tbx_ParkSoyad.Text.ToUpper(),
+                        CitizenshipNumber = tbx_ParkTcNo.Text,
+                        Gsm = tbx_ParkTelefonNo.Text,
+                        CarBrand = tbx_ParkMarka.Text.ToUpper(),
+                        NumberPlate = tbx_ParkPlaka.Text.ToUpper(),
+                        CarPark = lbl_ParkYeriNo.Text,
+                        ParkingDate = DateTime.Now,
+                    });
+
+                    Properties.Settings.Default.OtoparkListem.Add(lbl_ParkYeriNo.Text);
+                    Properties.Settings.Default.Save();
+                    ButonRenkKirmizi();
+                    MessageBox.Show("Araç park edildi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TExtBoxSil();
+                    LoadCars();
+                }
+                else
                 {
-                    Name = tbx_ParkAd.Text.ToUpper(),
-                    Surname = tbx_ParkSoyad.Text.ToUpper(),
-                    CitizenshipNumber = tbx_ParkTcNo.Text,
-                    Gsm = tbx_ParkTelefonNo.Text,
-                    CarBrand = tbx_ParkMarka.Text.ToUpper(),
-                    NumberPlate = tbx_ParkPlaka.Text.ToUpper(),
-                    CarPark = lbl_ParkYeriNo.Text,
-                    ParkingDate = DateTime.Now,
-                });
-
-
-                MessageBox.Show("Araç park edildi", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TExtBoxSil();
-                LoadCars();
+                    MessageBox.Show("Test");
+                }
+                
             }
             catch (Exception exception)
             {
@@ -189,7 +197,17 @@ namespace PARKOT.WindowsFormUI
 
         #region Metotlarım
 
-       public static void ParkButonlarim()
+        private bool TextBoxValid()
+        {
+            return !String.IsNullOrEmpty(tbx_ParkAd.Text) &&
+                   !String.IsNullOrEmpty(tbx_ParkSoyad.Text) &&
+                   !String.IsNullOrEmpty(tbx_ParkMarka.Text) &&
+                   !String.IsNullOrEmpty(tbx_ParkPlaka.Text) &&
+                   tbx_ParkTcNo.MaskFull &&
+                   tbx_ParkTelefonNo.MaskFull &&
+                   !String.IsNullOrEmpty(lbl_ParkYeriNo.Text);
+        }
+        public static void ParkButonlarim()
         {
             int left = 0;
             int top = 0;
