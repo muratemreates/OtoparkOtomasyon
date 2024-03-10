@@ -10,14 +10,16 @@ namespace DataAccess.Concrete
 {
     public class EfMemberDal:EfEntitiyRespositoryBase<Member,PARKOTContext>,IMemberdal
     {
-        private readonly PARKOTContext context = new PARKOTContext();
 
         public bool MemberSearch(string username, string password)
         {
-            using (context)
+            using (PARKOTContext context = new PARKOTContext())
             {
-                var result = context.Members.FirstOrDefault(p => p.UserName == username && p.Password == password);
-                if (username != null)
+                try
+                {
+                       var result = context.Members.FirstOrDefault(p => p.UserName == username && p.Password == password);
+               
+                if (result != null)
                 {
                     return true;
                 }
@@ -25,12 +27,19 @@ namespace DataAccess.Concrete
                 {
                     return false;
                 }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+             
             }
         }
 
         public bool GetUserName(string username)
         {
-            using (context)
+            using (PARKOTContext context = new PARKOTContext())
             {
                 var result = context.Members.Any(p => p.UserName == username);
                 return result;

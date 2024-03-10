@@ -1,5 +1,6 @@
 ﻿using Bussiness.Abstract;
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Bussiness.DependencyResolvers.Ninject;
@@ -222,6 +223,7 @@ namespace PARKOT.WindowsFormUI
                 left += Properties.Settings.Default.ButonGenislik;
 
                 buton.BackColor = Properties.Settings.Default.Yesil;
+                buton.Font = new Font("Microsoft YaHei", 12,FontStyle.Bold);
                 buton.Text = i.ToString();
                 buton.Tag = i.ToString();
                 buton.Click += ClickOlayim;

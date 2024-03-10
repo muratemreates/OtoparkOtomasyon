@@ -1,4 +1,6 @@
 ﻿using Bussiness.Abstract;
+using Bussiness.Utilities;
+using Bussiness.Validationrules.Fulentvalidation;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -20,6 +22,7 @@ namespace Bussiness.Concrete
 
         public bool MemberSearch(string username, string password)
         {
+            
             return _memberdal.MemberSearch(username, password);
         }
 
