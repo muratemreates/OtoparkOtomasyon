@@ -71,7 +71,7 @@ namespace PARKOT.WindowsFormUI
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen tüm alanalrı eksiksik doldurun","HATA",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Lütfen tüm alanları eksiksik doldurun","HATA",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
 
             }

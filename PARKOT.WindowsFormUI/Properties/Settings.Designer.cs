@@ -49,7 +49,7 @@ namespace PARKOT.WindowsFormUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        [global::System.Configuration.DefaultSettingValueAttribute("80")]
         public int ButonYukseklik {
             get {
                 return ((int)(this["ButonYukseklik"]));

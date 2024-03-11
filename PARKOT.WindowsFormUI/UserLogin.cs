@@ -50,12 +50,9 @@ namespace PARKOT.WindowsFormUI
         {
             if (TextBoxKontrolu())
             {
-                if (_memberService.MemberSearch(txb_Kullanici.Text, txb_Sifre.Text))
+                if (_memberService.MemberSearch(txb_Kullanici.Text.Trim(), txb_Sifre.Text.Trim()))
                 {
-                    Parkot parkot = new Parkot();
-                    parkot.Show();
-                    soundPlayer.Stop();
-                    this.Hide();
+                    Giris_Zamanlayici.Start();
                 }
                 else
                 {
@@ -80,5 +77,36 @@ namespace PARKOT.WindowsFormUI
         }
 
         #endregion
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            soundPlayer.Stop();
+        }
+
+        private void Giris_Zamanlayici_Tick(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.AppStarting;
+            lbl_GirisOnayi.Visible = true;
+            yuklenme_Bari.Value += 1;
+            yuklenme_Bari.Visible = true;
+            lbl_GirisOnayi.Text = $"Giriş Onaylandı..%{yuklenme_Bari.Value}";
+
+            if (yuklenme_Bari.Value == 100)
+            {
+                Parkot parkot = new Parkot();
+                parkot.Show();
+                soundPlayer.Stop();
+                Giris_Zamanlayici.Stop();
+                this.Hide();
+            }
+            
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            SignIn signIn = new SignIn();
+            signIn.Show();
+            this.Hide();
+        }
     }
 }

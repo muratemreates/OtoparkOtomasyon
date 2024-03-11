@@ -17,6 +17,7 @@ namespace Bussiness.Concrete
 
         public void Add(Member member)
         {
+            ValidationTool.Validate(new MemberValidatorForLogin(),member);
             _memberdal.Add(member);
         }
 
