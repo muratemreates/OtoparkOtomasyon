@@ -48,6 +48,7 @@ namespace PARKOT.WindowsFormUI
 
         private void btn_Giris_Click(object sender, EventArgs e)
         {
+            //deneme
             if (TextBoxKontrolu())
             {
                 if (_memberService.MemberSearch(txb_Kullanici.Text.Trim(), txb_Sifre.Text.Trim()))
